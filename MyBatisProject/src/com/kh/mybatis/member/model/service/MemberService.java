@@ -23,4 +23,24 @@ public class MemberService {
 		
 		return loginUser;
 	}
+	
+	public int enrollMember(Member m) {
+		// connection 객체 반환
+		SqlSession sqlSession = Template.getSqlSession();
+		// 전달할 객체가 여러개일 경우에 HashMap객체 생성해서 전달해줌.
+		
+		// mybatis 프레임워크가 xml처리 대신해줘서 변수로 선언해도됨
+		int result = memberDao.enrollMember(sqlSession , m);
+	
+		if(result > 0) {
+			sqlSession.commit();
+		}else {
+			sqlSession.rollback();
+		}
+			
+		// Connection 객체 종료
+		sqlSession.close();
+		
+		return result;
+	}
 }
