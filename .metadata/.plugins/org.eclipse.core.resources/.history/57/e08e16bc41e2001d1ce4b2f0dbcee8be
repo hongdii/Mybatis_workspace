@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 
+	이 문서의 형식이 configuration(환경설정)임을 알려줌
+	=> 최상위차입이 configuration
+	DTD : 유효성을 체크해줌(현재 xml파일안에 작성한 태그들이 configuration안에 존재해도 되는지를 체크해줌)
+-->  
+  
+<configuration>
+	
+	<!-- setting : Mybatis구동시 선언할 설정들을 작성하는 영역 -->
+	<settings>
+		<!-- 만약에 NULL로 데이터가 전달되었다면 빈칸이 아닌 NULL로 인식하겠다. -->
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	
+	<!-- typeAliases : VO 클래스들의 풀 클래스명을 단순한 클래스명으로 줄여서 부르기위한 "별칭" 등록 영역 -->
+	<typeAliases>
+		<typeAlias type="com.kh.mybatis.member.model.vo.Member" alias="member"/>
+		<typeAlias type="com.kh.mybatis.board.model.vo.Board" alias="board"/>
+		<typeAlias type="com.kh.mybatis.board.model.vo.Reply" alias="reply"/>
+	</typeAliases>
+	
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="org/mybatis/example/BlogMapper.xml"/>
+  </mappers>
+</configuration>

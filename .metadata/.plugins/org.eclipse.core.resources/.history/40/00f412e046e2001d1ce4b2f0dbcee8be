@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- index 페이지가 로딩되자마자 manubar로 포워딩 -->
+<jsp:forward page="views/common/menubar.jsp"></jsp:forward>
+</body>
+</html>
