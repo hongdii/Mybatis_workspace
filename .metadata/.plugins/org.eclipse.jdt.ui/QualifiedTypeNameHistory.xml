@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.kh.mybatis.member.model.dao.MemberDao"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.io.Resources"/>
+    <fullyQualifiedTypeName name="java.io.InputStream"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactoryBuilder"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactory"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.member.model.vo.Member"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.member.model.service.MemberService"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.board.model.service.BoardService"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.common.template.Pagination"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.common.template.Template"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.board.model.vo.Board"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.common.model.vo.PageInfo"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.board.model.dao.BoardDao"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.RowBounds"/>
+</qualifiedTypeNameHistroy>

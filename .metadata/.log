@@ -319,3 +319,21 @@ Caused by: java.net.ConnectException: Connection timed out: connect
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2023-04-24 13:25:36.211
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2023-04-24 14:41:05.333
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2023-04-24 14:41:05.333
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2023-04-24 14:41:05.334
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2023-04-24 14:41:06.317
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2023-04-24 14:41:06.317
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2023-04-24 14:41:06.318
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
