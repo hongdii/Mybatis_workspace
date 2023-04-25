@@ -1,6 +1,7 @@
 package com.kh.mybatis.board.model.vo;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Board {
 	/*
@@ -14,6 +15,9 @@ public class Board {
 	private Date createDate;
 	private String status;
 	
+	// 굳이 보드 디테일뷰 안에서 따로따로 데이터를 추가하지않아도됨
+	private ArrayList<Reply> replyList;
+
 	public Board() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -29,6 +33,14 @@ public class Board {
 		this.count = count;
 		this.createDate = createDate;
 		this.status = status;
+	}
+
+	public ArrayList<Reply> getReplyList() {
+		return replyList;
+	}
+
+	public void setReplyList(ArrayList<Reply> replyList) {
+		this.replyList = replyList;
 	}
 
 	public int getBoardNo() {
@@ -91,7 +103,7 @@ public class Board {
 	public String toString() {
 		return "Board [boardNo=" + boardNo + ", boardTitle=" + boardTitle + ", boardContent=" + boardContent
 				+ ", boardWriter=" + boardWriter + ", count=" + count + ", createDate=" + createDate + ", status="
-				+ status + "]";
+				+ status + ", replyList=" + replyList + "]";
 	}
-	
+
 }

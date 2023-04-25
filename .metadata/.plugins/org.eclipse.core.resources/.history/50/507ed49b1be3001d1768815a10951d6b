@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardMapper">
+<!-- 
+	resultMap type이 board인 하나 생성하고
+	
+	select id값이 selectListCount, selectList 태그 2개 만들기
+-->
+
+<!-- 
+	resultMap 은 모두 위로 작성하여 관리하는 것이 편리함
+ -->
+<resultMap type="board" id="boardResultSet">
+	<!-- result태그도 가능하나 pk값인 경우에 id태그를 사용해도됨 -->
+	<id column="BOARD_NO" property="boardNo"/>
+	<result column="BOARD_TITLE" property="boardTitle"/>
+	<result column="BOARD_CONTENT" property="boardContent"/>
+	<result column="USER_NAME" property="boardWriter"/>
+	<result column="COUNT" property="count"/>
+	<result column="BOARD_DATE" property="createDate"/>
+	<!-- 하나의 값이 아닌 리플라이 여러개 객체가 들어가는것이기 때문에 resultMap을 사용 -->
+	<collection property="replyList" resultMap="replyResultSet" />
+</resultMap>
+
+<resultMap type="reply" id="replyResultSet">
+	<id column="REPLY_NO" property="replyNo"/>
+	<result column="REPLY_CONTENT" property="replyContent"/>
+	<result column="REF_BNO" property="refBno"/>
+	<result column="REPLY_WRITER" property="replyWriter"/>
+	<result column="CREATE_DATE" property="createDate"/>
+</resultMap>
+
+<select id="selectListCount" resultType="int">
+SELECT COUNT(*) FROM BOARD WHERE STATUS = 'Y'
+</select>
+
+<select id="selectList"  resultMap="boardResultSet">
+	SELECT *
+	FROM BOARD B
+	JOIN MEMBER ON (BOARD_WRITER = USER_NO)
+	WHERE B.STATUS = 'Y'
+	ORDER BY BOARD_NO DESC
+</select>
+
+<!-- UPDATE DELETE INSERT문은 resultType 생략 가능 
+	parameterType _int 를 가장 많이 사용 -->
+<update id="increaseCount" parameterType="_int">
+UPDATE BOARD
+SET COUNT = COUNT + 1
+WHERE BOARD_NO = #{boardNo}
+AND STATUS = 'Y'
+</update>
+
+<!-- SELECT타입은 무조건 반환형이 필요함 -->
+<select id="selectBoard" parameterType="int" resultMap="boardResultSet">
+	SELECT 
+		BOARD_NO,
+		BOARD_TITLE,
+		M.USER_NAME,
+		COUNT,
+		B.CREATE_DATE AS BOARD_DATE,
+		BOARD_CONTENT,
+		R.*
+	FROM BOARD B
+	JOIN MEMBER M ON (B.BOARD_WRITER = M.USER_NO)
+	LEFT JOIN REPLY R ON (BOARD_NO = REF_BNO)
+	WHERE B.BOARD_NO = #{boardNo}
+	AND B.STATUS = 'Y'
+	ORDER BY R.CREATE_DATE DESC
+</select>
+
+<select id="selectReplyList" parameterType="int" resultMap="replyResultSet">
+	SELECT  *
+	FROM REPLY R
+	JOIN BOARD ON (R.REF_BNO = BOARD_NO)
+	WHERE R.STATUS = 'Y'
+	AND REF_BNO = #{boardNo}
+	ORDER BY R.REPLY_NO DESC
+</select>
+
+<select id="selectSearchCount" parameterType="HashMap" resultType="int">
+	SELECT COUNT(*)
+	FROM BOARD
+	JOIN MEMBER M ON (B.BOARD_WRITER = M.USER_NO)
+	<where>
+	<choose>
+		<when test="condition != null">
+			
+				<if test="condition == '작성자' ">
+					<if test="keyword != null">
+						AND M.USER_NO LIKE #{keyword}
+					</if>
+				</if>
+				<if test="condition == '제목' ">
+					<if test="keyword != null">
+						AND BOARD_TITLE LIKE #{keyword} 
+					</if>
+				</if>
+				<if test="condition == '내용' ">
+					<if test="keyword != null">
+						AND BOARD_CONTENT LIKE #{keyword} 
+					</if>
+				</if>
+			
+		</when>
+	</choose>
+	</where>
+</select>
+
+<select id="selectSearchList" parameterType="HashMap" >
+	SELECT B.*
+	FROM BOARD B
+	JOIN MEMBER M ON (B.BOARD_WRITER = M.USER_NO)
+	WHERE STATUS = 'Y'
+	<if test="condition != null">
+		<if test="condition == '작성자' ">
+			<if test="keyword != null">
+				AND M.USER_NO LIKE #{keyword}
+			</if>
+		</if>
+		<if test="condition == '제목' ">
+			<if test="keyword != null">
+				AND BOARD_TITLE LIKE #{keyword} 
+			</if>
+		</if>
+		<if test="condition == '내용' ">
+			<if test="keyword != null">
+				AND BOARD_CONTENT LIKE #{keyword} 
+			</if>
+		</if>
+	</if>
+	
+</select>
+
+</mapper>

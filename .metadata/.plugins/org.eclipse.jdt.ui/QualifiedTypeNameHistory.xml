@@ -9,13 +9,15 @@
     <fullyQualifiedTypeName name="com.kh.mybatis.member.model.vo.Member"/>
     <fullyQualifiedTypeName name="com.kh.mybatis.member.model.service.MemberService"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="com.kh.mybatis.board.model.service.BoardService"/>
-    <fullyQualifiedTypeName name="com.kh.mybatis.common.template.Pagination"/>
     <fullyQualifiedTypeName name="com.kh.mybatis.common.template.Template"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="com.kh.mybatis.board.model.vo.Board"/>
-    <fullyQualifiedTypeName name="com.kh.mybatis.common.model.vo.PageInfo"/>
     <fullyQualifiedTypeName name="com.kh.mybatis.board.model.dao.BoardDao"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.session.RowBounds"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.board.model.vo.Reply"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.board.model.service.BoardService"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.common.template.Pagination"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.common.model.vo.PageInfo"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.kh.mybatis.board.model.vo.Board"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>

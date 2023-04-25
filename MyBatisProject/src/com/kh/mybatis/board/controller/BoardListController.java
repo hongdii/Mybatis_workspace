@@ -17,7 +17,7 @@ import com.kh.mybatis.common.template.Pagination;
 /**
  * Servlet implementation class BoardListController
  */
-@WebServlet("list.bo")
+@WebServlet("/list.bo")
 public class BoardListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
